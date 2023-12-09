@@ -3,6 +3,8 @@ import datetime as dt
 import pandas as pd
 import argparse
 
+today = dt.datetime.today()
+
 def transform_date(date):
     return dt.datetime(date.year,
                        date.month,
