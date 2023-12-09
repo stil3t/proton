@@ -110,7 +110,7 @@ class Company:
     search_query: list
 
 
-model = keras.models.load_model("my_model.keras")
+model = keras.models.load_model("/root/proton/my_model.keras")
 
 def transform_date(date):
     return dt.datetime(date.year,
