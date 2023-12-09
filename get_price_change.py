@@ -20,10 +20,6 @@ def get_price_change(ticker, period='week'):
         delta = dt.timedelta(years=1)
     elif period == 'month':
         delta = dt.timedelta(days=30)
-    elif period == 'day':
-        delta = dt.timedelta(days=1)
-    else:
-        delta = dt.timedelta(days=7)
         
         
     beg1 = transform_date(today - delta)
@@ -33,8 +29,9 @@ def get_price_change(ticker, period='week'):
     
     tckr = algo.Ticker(ticker)
     
-    beg = tckr.tradestats(date=beg1.date(), till_date=beg2.date()).iloc[-1]
-    end = tckr.tradestats(date=end2.date(), till_date=end1.date()).iloc[0]
+    beg = pd.DataFrame(tckr.tradestats(date=beg1.date(), till_date=beg2.date())).iloc[-1]
+    end = next(tckr.tradestats(date=end2.date(), till_date=end1.date()))
+
     return (end.pr_vwap - beg.pr_vwap) / beg.pr_vwap * 100
 
 
