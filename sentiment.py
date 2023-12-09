@@ -151,7 +151,7 @@ def get_background(ticker, search_query, period='month', alpha = .999, pages=5):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--ticker')
-    parser.add_argument('--searh_query')
+    parser.add_argument('--search_query')
     parser.add_argument('--period', default='month')
     parser.add_argument('--pages', default=5)
     args = parser.parse_args()
