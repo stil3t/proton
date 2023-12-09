@@ -1,6 +1,7 @@
 import moexalgo as algo
 import datetime as dt
 import pandas as pd
+import argparse
 
 def transform_date(date):
     return dt.datetime(date.year,
@@ -19,6 +20,8 @@ def get_price_change(ticker, period='week'):
         delta = dt.timedelta(days=30)
     elif period == 'day':
         delta = dt.timedelta(days=1)
+    else:
+        delta = dt.timedelta(days=7)
         
         
     beg1 = transform_date(today - delta)
