@@ -156,4 +156,4 @@ if __name__ == '__main__':
     parser.add_argument('--pages', default=5)
     args = parser.parse_args()
     sent = get_background(args.ticker, args.search_query, args.period, pages=args.pages)
-    print(sent[-1])
+    print(sent.iloc[-1].item())
